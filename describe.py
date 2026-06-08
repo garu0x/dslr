@@ -3,6 +3,9 @@ from helper_functions.max import ft_max
 from helper_functions.avg import ft_avg
 from helper_functions.percentile import ft_percentile
 from helper_functions.std import ft_std
+from helper_functions.variance import ft_variance
+from helper_functions.range import ft_range
+from helper_functions.skewness import ft_skewness
 
 import csv
 import sys
@@ -55,7 +58,7 @@ with open(sys.argv[1]) as file:
 shortened_headers = [shorten_header(col) for col in float_columns]
 
 # Define labels for the statistics rows
-labels = ["mean", "min", "avg", "std", "25%", "50%", "75%", "max"]
+labels = ["mean", "min", "avg", "std", "25%", "50%", "75%", "max", "range", "variance", "skewness"]
 
 print(mean)
 # Prepare the statistics rows with labels
@@ -67,7 +70,10 @@ statistics_rows = [
     [label] + [shorten_value(ft_percentile(column_values[col], 25)) for col in float_columns] if label == "25%" else
     [label] + [shorten_value(ft_percentile(column_values[col], 50)) for col in float_columns] if label == "50%" else
     [label] + [shorten_value(ft_percentile(column_values[col], 75)) for col in float_columns] if label == "75%" else
-    [label] + [shorten_value(ft_max(column_values[col])) for col in float_columns]
+    [label] + [shorten_value(ft_max(column_values[col])) for col in float_columns]  if label == "max" else
+    [label] + [shorten_value(ft_range(column_values[col])) for col in float_columns] if label == "range" else
+    [label] + [shorten_value(ft_variance(column_values[col])) for col in float_columns] if label == "variance" else
+    [label] + [shorten_value(ft_skewness(column_values[col])) for col in float_columns]
     for label in labels
 ]
 
