@@ -30,7 +30,7 @@ col1 = []
 col2 = []
 house_col = []
 
-
+#creation d'une matrice regroupant par matiere chaque eleve avec sa maison et sa note respective
 feature_cols = []
 for subject in subjects:
     col = []
@@ -42,14 +42,16 @@ for subject in subjects:
 data = file[["Hogwarts House"] + subjects].dropna()
 house_col = list(data["Hogwarts House"])
 
+
 possible_houses = ["Hufflepuff", "Gryffindor", "Ravenclaw", "Slytherin"]
 # normalisation
 feature_matrix = []
 for subject in subjects:
     col = list(data[subject])
     feature_matrix.append(normalize(col))
-
+print(feature_matrix)
 features = np.column_stack(feature_matrix)  # shape (n_samples, 13)
+print(features)
 n_features = features.shape[1]
 
 # labelisation
@@ -86,9 +88,9 @@ for epoch in range(n_epochs):
         error = y_pred - labels
         print(f"error {error}")
         dw = np.dot(features.T, error) / len(labels)
-        
+        print(dw)
         db = np.mean(error)
-        
+        print(db)
 
         weights[house] -= dw * learning_rate
         biases[house] -= db * learning_rate
@@ -106,10 +108,10 @@ winner = []
 for i in range(len(features)):
     scores = {house: pred[house][i] for house in possible_houses}
     winner.append(max(scores, key=scores.get))
-    print(f"Étudiant {i} → {winner[i]} (score: {scores[winner[i]]:.3f})")
+    # print(f"Étudiant {i} → {winner[i]} (score: {scores[winner[i]]:.3f})")
 
 
 # print(winner)
 # print(house_col)
 # verification
-print(accuracy_score(winner, house_col))
+# print(accuracy_score(winner, house_col))
