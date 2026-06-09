@@ -13,15 +13,14 @@ def ft_percentile(array, value):
     sorted_array = sorted(array)
     len_array = len(array)
     raw_pos = (len_array * value / 100)
-    print(f"Raw_pos: {raw_pos}")
     if raw_pos != int(raw_pos):
         return sorted_array[int(raw_pos)]
     else:
         return (sorted_array[int(raw_pos)] + sorted_array[int(raw_pos- 1)]) / 2
 
-test = [1,2,3,4,5]
-# print(test[6])
-# print(len(test))
-print(f"25: {ft_percentile(test, 25)}")
-print(f"50: {ft_percentile(test, 50)}")
-print(f"75: {ft_percentile(test, 75)}")
+# test = [1,2,3,4,5]
+# # print(test[6])
+# # print(len(test))
+# print(f"25: {ft_percentile(test, 25)}")
+# print(f"50: {ft_percentile(test, 50)}")
+# print(f"75: {ft_percentile(test, 75)}")

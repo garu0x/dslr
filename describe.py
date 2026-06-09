@@ -59,8 +59,6 @@ shortened_headers = [shorten_header(col) for col in float_columns]
 
 # Define labels for the statistics rows
 labels = ["mean", "min", "avg", "std", "25%", "50%", "75%", "max", "range", "variance", "skewness"]
-
-print(mean)
 # Prepare the statistics rows with labels
 statistics_rows = [
     [label] + [shorten_value(mean) for col in float_columns] if label == "mean" else
@@ -85,6 +83,6 @@ print("-" * (COLUMN_WIDTH * (len(shortened_headers) + 4)))
 for row in statistics_rows:
     print(" | ".join(f"{value:<{COLUMN_WIDTH}}" for value in row))
 
-with open("data/dataset_train.csv", "r") as f :
-    df = pd.read_csv(f)
-    print(df.describe())
+# with open("data/dataset_train.csv", "r") as f :
+#     df = pd.read_csv(f)
+#     print(df.describe())
