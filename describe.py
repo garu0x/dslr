@@ -9,7 +9,6 @@ from helper_functions.skewness import ft_skewness
 
 import csv
 import sys
-import pandas as pd
 
 COLUMN_WIDTH = 12
 
@@ -20,30 +19,34 @@ def shorten_value(value):
 def shorten_header(header):
     return header[:10] if len(header) > 10 else header
 
+
+def _is_float(value):
+    try:
+        float(value)
+        return True
+    except (TypeError, ValueError):
+        return False
+
 if len(sys.argv) != 2:
     print("You need a single file path")
     exit(1)
 with open(sys.argv[1]) as file:
     csv_reader = csv.DictReader(file, delimiter=",")
-    columns = csv_reader.fieldnames
+    columns = csv_reader.fieldnames or []
+    rows = list(csv_reader)
 
     float_columns = []
     for col in columns:
         if col.lower() == "index":
             continue
-        try:
-            all_floats = any(float(row[col]) if row[col] else False for row in csv_reader)
-            if all_floats:
-                float_columns.append(col)
-        except ValueError:
+        values = [row.get(col, "") for row in rows if row.get(col, "") not in (None, "")]
+        if not values:
             continue
-
-    file.seek(0)
-    csv_reader = csv.DictReader(file, delimiter=",")
-
+        if all(_is_float(value) for value in values):
+            float_columns.append(col)
     column_values = {col: [] for col in float_columns}
     mean = 0
-    for row in csv_reader:
+    for row in rows:
         mean += 1
         for col in float_columns:
             value = row.get(col)
