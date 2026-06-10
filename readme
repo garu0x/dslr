@@ -1,0 +1,89 @@
+DSLR - Data Science ×Logistic Regression
+
+Harry Potter and the Data Scientist
+
+Objectives:
+
+In this project Data Science ×Logistic Regression, you will continue your exploration of
+Machine Learning by discovering dierent tools.
+The use of the term Data Science in the title may be considered by some as excessive.
+That is true. We do not claim to give you all the basics of Data Science in this topic.
+The subject is vast. We will only cover some basics that we believe are useful for data
+exploration before sending it to the machine learning algorithm.
+You will implement a linear classication model as a continuation of the linear regres-
+sion subject: a logistic regression. We also encourage you to create a machine learning
+toolkit as you progress along the way.
+Summarizing:
+•You will learn how to read a data set, visualize it in dierent ways, and select and
+clean unnecessary information from your data.
+•You will train a logistic regression model that will solve a classification problem
+
+Why use python?
+
+Seemed like the logical choice to do data analysis, because its easy to code and has numerous libraries taht simly the calculations, the creation of matrix and the visualisation
+
+Installation
+
+Use the package manager pip to install all the libraries listed in requirements.txt
+Use the following command: pip install -r requirements.txt
+
+Data Analysis
+
+describe.py is a program that can be called on both datasets, train and test, to get informations such as "mean", "min", "avg", "std", "25%", "50%", "75%", "max", "range", "variance" and "skewness". We use helper functions that we coded and can be found on the helper_functions folder
+
+Expected output:
+
+
+Data Visualization
+
+-Histogram: Here we are asked to display a histogram to answer the question:
+"Which Hogwarts course has a homogeneous score distribution between all four houses?"
+
+Our answer:
+
+![Alt text](histogram_output.png?raw=true "Histogram")
+
+===Ravenclaw===
+
+Subject with lowest standard deviation for Ravenclaw: Care of Magical Creatures (0.9724948287400437)
+
+===Slytherin===
+
+Subject with lowest standard deviation for Slytherin: Care of Magical Creatures (0.9357657375833146)
+
+===Gryffindor===
+
+Subject with lowest standard deviation for Gryffindor: Care of Magical Creatures (0.986863970220154)
+
+===Hufflepuff===
+
+Subject with lowest standard deviation for Hufflepuff: Care of Magical Creatures (0.9752491182477715)
+
+Scatter plot
+
+-Scatter plot: Here we are asked to display a scatter plot to answer the question:
+"What are the two features that are similar?"
+
+Our answer:
+
+![Alt text](scatter_plot_absolute.png?raw=true "Scatter Plot absolute")
+
+![Alt text](scatter_plot_positive.png?raw=true "Scatter Plot positive")
+
+Highest absolute correlation: Astronomy and Defense Against the Dark Arts (correlation: -1.0000)
+Highest positive correlation: History of Magic and Transfiguration (correlation: 0.8492)
+
+Pair plot
+
+-Pair plot: Here we are asked to display a pair plot to answer the question:
+"which features are you going to use for your logistic regression?"
+
+Our answer:
+
+![Alt text](pair_plot.png?raw=true "Histogram")
+
+TBD: subjects were one group has totally different grades then all the rest because we are doing one vs all approach
+
+Logistic Regression
+
+TBD

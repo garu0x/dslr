@@ -92,4 +92,18 @@ plt.xlabel(best_pair[0])
 plt.ylabel(best_pair[1])
 plt.title(f'Scatter Plot: {best_pair[0]} vs {best_pair[1]}\nCorrelation: {max_corr:.4f}')
 plt.grid(True, alpha=0.3)
+plt.savefig("scatter_plot_positive.png")
+plt.show()
+
+valid_pairs2 = [(x, y) for x, y in zip(subject_data[best_pair2[0]], subject_data[best_pair2[1]]) 
+               if x is not None and y is not None]
+x_vals2, y_vals2 = zip(*valid_pairs2)
+
+plt.figure(figsize=(8, 6))
+plt.scatter(x_vals2, y_vals2, alpha=0.5)
+plt.xlabel(best_pair2[0])
+plt.ylabel(best_pair2[1])
+plt.title(f'Scatter Plot: {best_pair2[0]} vs {best_pair2[1]}\nCorrelation: {max_corr2:.4f}')
+plt.grid(True, alpha=0.3)
+plt.savefig("scatter_plot_absolute.png")
 plt.show()
