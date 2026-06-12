@@ -87,3 +87,21 @@ TBD: subjects were one group has totally different grades then all the rest beca
 Logistic Regression
 
 TBD
+
+1. Logisitic Regression Training
+
+It is mandatory to use grandient descent to generate the weights for the prediction.
+
+Gradient descent is an algorithm that numerically estimates where a function outputs its lowest values.
+
+Our function f(x,y) defines defines an uneven surface. The gradient represents a slope. To find our minimum we can follow this slope little by little and repeat this operation enoguh times to get a result close enough to the optimum. The close we are to the minimum the lower the descent will be.
+
+If the function has multiple local minimums, we may different results depending on our starting point.
+
+Now what about logistic regression:
+it is a supervised machine learning algorithm used for classification problems. (vs Linear regression which is used to predict continuous values)
+
+Linear regression is used for binary classification where the output can either be 1 or 0. Sigmoid functions are used to convert inputs into a probability value between 0 and 1.
+
+In our case we need to classify students between four of the Hogwart Houses, meaning we will need to use Multinomial Logisitic Regression.
+
